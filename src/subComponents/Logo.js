@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-const Logo = () => {
+const Logo = ({click}) => {
     return (
-        <LogoTitle>
+        <LogoTitle click={click}>
             V2VBRO
         </LogoTitle>
     );
@@ -12,7 +12,7 @@ export default Logo;
 
 const LogoTitle = styled.h1`
     display: inline-block;
-    color: ${props => props.theme.text};
+    color: ${props => props.click ? props.theme.body : props.theme.text};
     font-family: 'Pacifico', cursive;
 
     position: fixed;

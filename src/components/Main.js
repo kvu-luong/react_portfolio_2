@@ -1,43 +1,62 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import  styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import Logo from '../subComponents/Logo';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
 import { YinYang } from './AllSvgs';
+import Intro from './Intro';
+import { motion } from 'framer-motion';
 
 const Main = () => {
+	const [click, setClick] = useState(false);
+	const handleClick = () => setClick(!click);
 	return (
 		<MainContainer>
 			<Container>
-                <PowerButton/>
-                <Logo />
-                <SocialIcons />
-                <Center>
-                    <YinYang width={200} height={200} fill="currentColor" />
-                    <span>Discover</span>
-                </Center>
-                <Contact target="_blank" to={{pathname: "mailto:luongkhanhvu1392@gmail.com"}}>
-                    <h3>Contact Me ...</h3>
-                </Contact>
-                <Blog to="/blog">
-                    <h3>
-                        Blog
-                    </h3>
-                </Blog>
-                <Work to="/work">
-                    <h3>
-                        Work
-                    </h3>
-                </Work>
-                <BottomBar>
-                    <About to="/about">
-                        <h3>About</h3>
-                    </About>
-                    <Skill to="/skills">
-                        <h3>My Skills.</h3>
-                    </Skill>
-                </BottomBar>
-            </Container>
+				<PowerButton />
+				<Logo click={click} />
+				<SocialIcons click={click} />
+				<Center click={click}>
+					<YinYang
+						onClick={() => handleClick()}
+						width={click ? 80 : 150}
+						height={click ? 80 : 150}
+						fill="currentColor"
+					/>
+					<motion.span whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						Explore
+					</motion.span>
+				</Center>
+				<Contact target="_blank" to={{ pathname: 'mailto:luongkhanhvu1392@gmail.com' }}>
+					<h3>Contact Me ...</h3>
+				</Contact>
+				<Blog to="/blog">
+					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						Blog
+					</motion.h3>
+				</Blog>
+				<Work to="/work" click={click}>
+					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						Work
+					</motion.h3>
+				</Work>
+				<BottomBar>
+					<About to="/about" click={click}>
+						<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+							About
+						</motion.h3>
+					</About>
+					<Skill to="/skills">
+						<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+							My Skills.
+						</motion.h3>
+					</Skill>
+				</BottomBar>
+
+				<DarkDiv click={click} />
+			</Container>
+			{click ? <Intro /> : null}
 		</MainContainer>
 	);
 };
@@ -49,7 +68,6 @@ const MainContainer = styled.div`
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
-
 	position: relative;
 
 	h2,
@@ -67,53 +85,53 @@ const Container = styled.div`
 `;
 
 const Contact = styled(NavLink)`
-    color: ${props => props.theme.text};
-    position: absolute;
-    top: 2rem;;
-    right: calc(1rem + 2vw);
-    text-decoration: none;
-    z-index: 1;
-`
+	color: ${(props) => props.theme.text};
+	position: absolute;
+	top: 2rem;
+	right: calc(1rem + 2vw);
+	text-decoration: none;
+	z-index: 2;
+`;
 
 const Blog = styled(NavLink)`
-    color: ${props => props.theme.text};
-    position: absolute;
-    top: 50%;;
-    right: calc(1rem + 2vw);
-    transform: rotate(90deg) translate(-50%, -50%);
-    text-decoration: none;
-    z-index: 1;
-`
+	color: ${(props) => props.theme.text};
+	position: absolute;
+	top: 50%;
+	right: calc(1rem + 2vw);
+	transform: rotate(90deg) translate(-50%, -50%);
+	text-decoration: none;
+	z-index: 2;
+`;
 
 const Work = styled(NavLink)`
-    color: ${props => props.theme.text};
-    position: absolute;
-    top: 50%;;
-    left: 2rem;
-    transform: rotate(-90deg) translate(-50%, -50%);
-    text-decoration: none;
-    z-index: 1;
-`
+	color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
+	position: absolute;
+	top: 50%;
+	left: 2rem;
+	transform: rotate(-90deg) translate(-50%, -50%);
+	text-decoration: none;
+	z-index: 2;
+`;
 
 const BottomBar = styled.div`
-    position: absolute;
-    bottom: 1rem;
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+	position: absolute;
+	bottom: 1rem;
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
 `;
 
 const About = styled(NavLink)`
-    color: ${props => props.theme.text};
-    text-decoration: none;
-    z-index: 1;
+	color: ${(props) => (props.click ? props.theme.body : props.theme.text)};
+	text-decoration: none;
+	z-index: 2;
 `;
 
 const Skill = styled(NavLink)`
-    color: ${props => props.theme.text};
-    text-decoration: none;
-    z-index: 1;
+	color: ${(props) => props.theme.text};
+	text-decoration: none;
+	z-index: 2;
 `;
 
 const rotateYing = keyframes`
@@ -126,26 +144,41 @@ const rotateYing = keyframes`
 `;
 
 const Center = styled.button`
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+	position: absolute;
+	top: ${(props) => (props.click ? '85%' : '50%')};
+	left: ${(props) => (props.click ? '92%' : '50%')};
+	transform: translate(-50%, -50%);
 
-    border: none;
-    outline: none;
-    background-color: transparent;
-    cursor: pointer;
+	border: none;
+	outline: none;
+	background-color: transparent;
+	cursor: pointer;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition: all 1s ease;
 
-    &>:first-child{
-        animation: ${rotateYing} infinite 1s linear;
-    }
-    &>:last-child{
-        padding-top: 1rem;
-    }
+	& > :first-child {
+		animation: ${rotateYing} infinite 1s linear;
+	}
+	& > :last-child {
+		display: ${(props) => (props.click ? 'none' : 'inline-block')};
+		padding-top: 1rem;
+	}
 `;
 
+const DarkDiv = styled.div`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 50%;
+
+	width: ${(props) => (props.click ? '50%' : '0%')};
+	height: ${(props) => (props.click ? '100%' : '0%')};
+	z-index: 1;
+	background-color: #000;
+
+	transition: height 0.5s ease, width 1s ease 0.5s;
+`;

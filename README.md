@@ -51,59 +51,99 @@ npm start
 ```
 - Using theme dark or light
 
-+ Creatd components/Themes.js
-+ Using ThemeProvider to call this component in src/App.js
-It only effect page when we add component to App.js like the code below, after we add new route.
+    + Creatd components/Themes.js
+    + Using ThemeProvider to call this component in src/App.js
+
+    It only effect page when we add component to App.js like the code below, after we add new route.
 
 - Using Router
 
-* src/index.js page
+    * src/index.js page
 
-```
-import { BrowserRouter } from 'react-router-dom';
+    ```
+    import { BrowserRouter } from 'react-router-dom';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-       <App />
-    </BrowserRouter>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
-```
+    ReactDOM.render(
+    <React.StrictMode>
+        <BrowserRouter>
+        <App />
+        </BrowserRouter>
+    </React.StrictMode>,
+    document.getElementById('root')
+    );
+    ```
 
-* src/App.js
+    * src/App.js
 
-```
-<GlobalStyle />
-<ThemeProvider theme={darkTheme}>
-    <Switch>
-        <Route exact path="/" component={Main} />
-        <Route exact path="/about" component={AboutPage} />
-        <Route exact path="/blog" component={BlogPage} />
-        <Route exact path="/work" component={WorkPage} />
-        <Route exact path="/skills" component={MySkillsPage} />
-    </Switch>
-</ThemeProvider>
-```
+    ```
+    <GlobalStyle />
+    <ThemeProvider theme={darkTheme}>
+        <Switch>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/about" component={AboutPage} />
+            <Route exact path="/blog" component={BlogPage} />
+            <Route exact path="/work" component={WorkPage} />
+            <Route exact path="/skills" component={MySkillsPage} />
+        </Switch>
+    </ThemeProvider>
+    ```
 
 - cover SvG file to react Component
-+ [Cover Page](https://react-svgr.com/playground/);
-+ Usage: Create component/AllSvgs.js
-```
-    <PowerBtn width={30} height={30} fill='currentColor' />
-```
+    + [Cover Page](https://react-svgr.com/playground/)
+    + Usage: Create component/AllSvgs.js
+    ```
+        <PowerBtn width={30} height={30} fill='currentColor' />
+    ```
 
-- NavLink of react-router-dom like <a> tag
+- NavLink of react-router-dom like `<a>` tag
 - Color inherit to get current color of parent
-```
-<NavLink style={{color: 'inherit'}} to="/">
-    <Github with={25} height={25} fill='currentColor' />
-</NavLink>
-```
+    ```
+    <NavLink style={{color: 'inherit'}} to="/">
+        <Github with={25} height={25} fill='currentColor' />
+    </NavLink>
+    ```
+
+- Main page:
+
+    Using position relative and absolute to set position for all element,
+    Then set width and height = 100 view screen with overflow=hidden;
+
+    + Set click on yingyang
+    + Set Intro component with animation
+
+        ```
+        transition: height 0.5s ease, width 1s ease 0.5s;
+        ```
+
+    + Checking click state to set color for text and icons on background black
+    + using background-gradient to set div color which make it look like 2 column (black and white)
+    + Using motion of 'framer-motion' to intro content
+        ```
+            <motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+                Work
+            </motion.h3>
+        ```
+        Mix styled-components with framer-motion:
+        ```
+        const Box = styled(motion.div)`
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        ```
+
+        Then in html, do something look like this:
+        ```
+        <Box 
+            initial = {{height: 0}}
+            animate={{height: '55vh'}}
+            transition={{type: 'string', duration: 2, delay: 1}}>
+        ```
 
 
-# Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
+
+### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 
 This repository contains starter code for Portfolio Website in ReactJS. <br />
 
