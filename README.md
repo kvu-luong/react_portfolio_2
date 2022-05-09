@@ -1,3 +1,108 @@
+# Start
+
+- Install
+
+```
+npm install
+```
+
+- Start project
+
+```
+npm start
+```
+
+- Library
+
+  - framer-motion: animation
+  - normalize.css
+  - styled-components
+  - tsparticles
+  - Add .prettierrc
+
+- Create globalStyle with styled-component
+
+  ```
+  src/globalStyles.js
+  ```
+
+  Then call it in App component
+
+  ```
+  import GlobalStyle from './globalStyles';
+
+  function App() {
+      return (
+          <>
+              <GlobalStyle />
+              App Page
+          </>
+      );
+  }
+
+  export default App;
+
+  ```
+
+- Import normalize.css in src/index.js file
+
+```
+    import '../node_modules/normalize.css';
+```
+- Using theme dark or light
+
++ Creatd components/Themes.js
++ Using ThemeProvider to call this component in src/App.js
+It only effect page when we add component to App.js like the code below, after we add new route.
+
+- Using Router
+
+* src/index.js page
+
+```
+import { BrowserRouter } from 'react-router-dom';
+
+ReactDOM.render(
+  <React.StrictMode>
+    <BrowserRouter>
+       <App />
+    </BrowserRouter>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
+
+* src/App.js
+
+```
+<GlobalStyle />
+<ThemeProvider theme={darkTheme}>
+    <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/about" component={AboutPage} />
+        <Route exact path="/blog" component={BlogPage} />
+        <Route exact path="/work" component={WorkPage} />
+        <Route exact path="/skills" component={MySkillsPage} />
+    </Switch>
+</ThemeProvider>
+```
+
+- cover SvG file to react Component
++ [Cover Page](https://react-svgr.com/playground/);
++ Usage: Create component/AllSvgs.js
+```
+    <PowerBtn width={30} height={30} fill='currentColor' />
+```
+
+- NavLink of react-router-dom like <a> tag
+- Color inherit to get current color of parent
+```
+<NavLink style={{color: 'inherit'}} to="/">
+    <Github with={25} height={25} fill='currentColor' />
+</NavLink>
+```
+
+
 # Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 
 This repository contains starter code for Portfolio Website in ReactJS. <br />
@@ -9,18 +114,22 @@ If you want to learn how to create it please follow below tutorial👇: <br />
 
 https://youtu.be/jcohAIaSy2M <br />
 
-----------------------------------------------------------------------------------------------
-### NOTE: 
-[react-particles-js](https://www.npmjs.com/package/react-particles-js) has been deprecated. You can use 
-[react-tsparticles](https://www.npmjs.com/package/react-tsparticles) instead.  <br />
-----------------------------------------------------------------------------------------------
+---
+
+### NOTE:
+
+[react-particles-js](https://www.npmjs.com/package/react-particles-js) has been deprecated. You can use
+[react-tsparticles](https://www.npmjs.com/package/react-tsparticles) instead. <br />
+
+---
+
 If you're using NodeJS 17+ versions then you have to edit below line in package.json file👇 <br />
 "start": "react-scripts start", <br />
 Just add --openssl-legacy-provider like this👇 <br />
 "start": "react-scripts --openssl-legacy-provider start", <br />
 
-
 ### Images of The Portfolio Website:
+
 ![HOME](https://github.com/codebucks27/React-Portfolio-starter-code-files/blob/main/Portfolio%20Images/Home.png)
 ![Intro](https://github.com/codebucks27/React-Portfolio-starter-code-files/blob/main/Portfolio%20Images/Intro.png)
 ![Blog](https://github.com/codebucks27/React-Portfolio-starter-code-files/blob/main/Portfolio%20Images/Blog.png)
@@ -28,16 +137,13 @@ Just add --openssl-legacy-provider like this👇 <br />
 ![Intro Mobile](https://github.com/codebucks27/React-Portfolio-starter-code-files/blob/main/Portfolio%20Images/Intro-Mobile.png)
 ![Intro Blog](https://github.com/codebucks27/React-Portfolio-starter-code-files/blob/main/Portfolio%20Images/Blog-Mobile.png)
 
-
 ### Resources Used in This Project
 
 Design in : https://www.figma.com/ <br />
-Svg Icons from :https://fontawesome.com/  <br />
+Svg Icons from :https://fontawesome.com/ <br />
 Spaceman 3D Image from : https://www.figma.com/community/plugin/769588393361258724/Vectary-3D-Elements <br />
 Audio: You said it Song by Claire Margot <br />
 Background Photo by <a href="https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Patrick Tomasso</a> on <a href="https://unsplash.com/s/photos/news-paper?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
-
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
