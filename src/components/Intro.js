@@ -10,7 +10,7 @@ const Intro = () => {
 				<Text>
 					<h1>Hi,</h1>
 					<h3>I'm KVU,</h3>
-					<h6>I learn from other to improve my skills.</h6>
+					<h6>I learn from others to improve my skills.</h6>
 				</Text>
 			</SubBox>
 			<SubBox>

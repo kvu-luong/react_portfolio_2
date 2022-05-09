@@ -2,11 +2,11 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './globalStyles';
 import { lightTheme } from './components/Themes';
 import { Route, Switch } from 'react-router-dom';
-import AboutPage from './components/AboutPage';
-import BlogPage from './components/BlogPage';
-import Main from './components/Main';
-import WorkPage from './components/WorkPage';
-import MySkillsPage from './components/MySkillsPage';
+import AboutPage from './page/AboutPage';
+import BlogPage from './page/BlogPage';
+import Main from './page/Main';
+import WorkPage from './page/WorkPage';
+import MySkillsPage from './page/MySkillsPage';
 
 function App() {
 	return (

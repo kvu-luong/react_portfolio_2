@@ -141,7 +141,30 @@ npm start
             transition={{type: 'string', duration: 2, delay: 1}}>
         ```
 
+- Blog page
 
++ WrapContainer -> set background image, container to contain items
++ Backdrop-filter: blur(2px): css blur for background
++ Combile 2 component css in styled-component
+```
+    const Box = style.div`
+        // some css here
+    `;
+    const Image = styled.div`
+        background-image: ${props => `url(${props.img})`};
+        width: 100%;
+        height: 60%;
+        background-size; cover;
+        border: 1px solid transparent;
+        background-position: center center;
+
+        // combine two styled-component
+        ${Box}:hover &{
+            border: 1px solid ${props => props.theme.body};
+        }
+
+    `;
+```
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 

@@ -4,8 +4,8 @@ import styled, { keyframes } from 'styled-components';
 import Logo from '../subComponents/Logo';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
-import { YinYang } from './AllSvgs';
-import Intro from './Intro';
+import { YinYang } from '../components/AllSvgs';
+import Intro from '../components/Intro';
 import { motion } from 'framer-motion';
 
 const Main = () => {
@@ -29,7 +29,9 @@ const Main = () => {
 					</motion.span>
 				</Center>
 				<Contact target="_blank" to={{ pathname: 'mailto:luongkhanhvu1392@gmail.com' }}>
-					<h3>Contact Me ...</h3>
+					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						Contact Me ...
+					</motion.h3>
 				</Contact>
 				<Blog to="/blog">
 					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
