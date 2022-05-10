@@ -27,7 +27,7 @@ const SocialIcons = ({click}) => {
                </NavLink>
            </div>
 
-           <Line click={!click}/>
+           <Line click={click}/>
         </Icons>
     );
 }
@@ -53,5 +53,5 @@ const Icons = styled.div`
 const Line = styled.span`
     width: 2px;
     height: 8rem;
-    background-color: ${props => props.click ? props.theme.body : props.theme.text}
+    background-color: ${props => props.click ? darkTheme.text :darkTheme.body}
 `;

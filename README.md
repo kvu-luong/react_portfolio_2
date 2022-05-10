@@ -140,7 +140,12 @@ npm start
             animate={{height: '55vh'}}
             transition={{type: 'string', duration: 2, delay: 1}}>
         ```
-
+    + transform: Different position of rotate will make different result;
+        ```
+        	transform: translate(-50%, -50%)  rotate(-90deg);
+            diff
+            transform: rotate(-90deg) translate(-50%, -50%)  ;
+        ```
 - Blog page
 
 + WrapContainer -> set background image, container to contain items
@@ -190,6 +195,8 @@ npm start
     ```
 + Using particles in src/subComponents/ParticlesComponent
     Link particles.js: https://vincentgarreau.com/particles.js/ 
+
+
 
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations

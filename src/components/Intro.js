@@ -5,7 +5,7 @@ const Intro = () => {
 	return (
 		<Box 
         animate={{height: ['0vh','60vh', '55vh']}}
-        transition={{type: 'string', duration: 2, delay: 1}}>
+        transition={{type: 'string', duration: 2, delay: 1.5}}>
 			<SubBox>
 				<Text>
 					<h1>Hi,</h1>

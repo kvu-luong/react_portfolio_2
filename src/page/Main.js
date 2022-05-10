@@ -38,13 +38,13 @@ const Main = () => {
 						Blog
 					</motion.h3>
 				</Blog>
-				<Work to="/work" click={click}>
+				<Work to="/work">
 					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
 						Work
 					</motion.h3>
 				</Work>
 				<BottomBar>
-					<About to="/about" click={click}>
+					<About to="/about">
 						<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
 							About
 						</motion.h3>
@@ -58,7 +58,7 @@ const Main = () => {
 
 				<DarkDiv click={click} />
 			</Container>
-			{click ? <Intro /> : null}
+			{ click ? <Intro /> : undefined}
 		</MainContainer>
 	);
 };
@@ -110,7 +110,7 @@ const Work = styled(NavLink)`
 	position: absolute;
 	top: 50%;
 	left: 2rem;
-	transform: rotate(-90deg) translate(-50%, -50%);
+	transform: translate(-50%, -50%)  rotate(-90deg);
 	text-decoration: none;
 	z-index: 2;
 `;
