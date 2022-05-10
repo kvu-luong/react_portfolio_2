@@ -175,7 +175,21 @@ npm start
         endofScroll = (scrollPosition + windowSize = bodyHeight)
     ```
     Using return to prevent race conditions when featch data with reacthooks
-    Detail explaination: https://medium.com/hackernoon/avoiding-race-conditions-when-fetching-data-with-react-hooks-220d6fd0f663 
+    Detail explaination: https://medium.com/hackernoon/avoiding-race-conditions-when-fetching-data-with-react-hooks-220d6fd0f663
+
+
+- Skills page
+
++ Set Fill color for svg in css
+    ```
+     ${Main}:hover & {
+        & >*{
+            fill: ${props => props.theme.body};
+        }
+    }
+    ```
++ Using particles in src/subComponents/ParticlesComponent
+
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 
