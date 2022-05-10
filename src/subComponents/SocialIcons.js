@@ -27,7 +27,7 @@ const SocialIcons = ({click}) => {
                </NavLink>
            </div>
 
-           <Line click={click}/>
+           <Line click={!click}/>
         </Icons>
     );
 }

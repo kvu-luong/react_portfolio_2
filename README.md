@@ -189,6 +189,7 @@ npm start
     }
     ```
 + Using particles in src/subComponents/ParticlesComponent
+    Link particles.js: https://vincentgarreau.com/particles.js/ 
 
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
