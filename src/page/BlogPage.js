@@ -7,8 +7,16 @@ import SocialIcon from '../subComponents/SocialIcons';
 
 import { Blogs } from '../data/BlogData';
 import AnchorComponent from '../subComponents/Anchor';
+import { useState, useEffect } from 'react';
 
 const BlogPage = () => {
+	const [number, setNumber] = useState(1);
+
+	useEffect(() => {
+		let num = (window.innerHeight - 70) / 30;
+		setNumber(parseInt(num));
+		console.log({num, windowHeight: window.innerHeight});
+	},[])
 	return (
 		<WrapContainer>
 			<Container>
@@ -22,7 +30,7 @@ const BlogPage = () => {
 						))}
 					</Grid>
 				</Center>
-				<AnchorComponent />
+				<AnchorComponent number={number}/>
 			</Container>
 		</WrapContainer>
 	);

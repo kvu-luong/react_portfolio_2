@@ -1,7 +1,7 @@
 import { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Anchor, Link } from '../components/AllSvgs';
-const AnchorComponent = () => {
+const AnchorComponent = ({number}) => {
 	const ref = useRef(null);
 	const hiddenRef = useRef(null);
 
@@ -35,7 +35,7 @@ const AnchorComponent = () => {
 				<Anchor width={70} height={70} fill="currentColor" />
 			</PreDisplay>
 			<Slider ref={ref}>
-				{[...Array(25)].map((x, id) => {
+				{[...Array(number)].map((x, id) => {
 					return <Link key={id} width={25} height={25} fill="currentColor" className="chain" />;
 				})}
 				<Anchor width={70} height={70} fill="currentColor" />
