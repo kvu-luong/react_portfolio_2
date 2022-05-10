@@ -165,6 +165,17 @@ npm start
 
     `;
 ```
++ Scroll animation with event 'scroll'
+    ```
+    	let scrollPosition = window.pageYOffset;
+		let windowSize = window.innerHeight;
+		let bodyHeight = document.body.offsetHeight;
+
+        // end of scroll
+        endofScroll = (scrollPosition + windowSize = bodyHeight)
+    ```
+    Using return to prevent race conditions when featch data with reacthooks
+    Detail explaination: https://medium.com/hackernoon/avoiding-race-conditions-when-fetching-data-with-react-hooks-220d6fd0f663 
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 

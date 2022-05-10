@@ -12,9 +12,9 @@ const BlogPage = () => {
 	return (
 		<WrapContainer>
 			<Container>
-				<Logo />
+				<Logo click={false}/>
 				<PowerButton />
-				<SocialIcon />
+				<SocialIcon click={false} />
 				<Center>
 					<Grid>
 						{Blogs && Blogs.map((item) => (

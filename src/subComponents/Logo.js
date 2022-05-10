@@ -18,5 +18,5 @@ const LogoTitle = styled.h1`
     position: fixed;
     left: 2rem;
     top: 2rem;
-    z-index: 3;
+    z-index: 10;
 `;
