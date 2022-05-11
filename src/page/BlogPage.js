@@ -8,6 +8,7 @@ import SocialIcon from '../subComponents/SocialIcons';
 import { Blogs } from '../data/BlogData';
 import AnchorComponent from '../subComponents/Anchor';
 import { useState, useEffect } from 'react';
+import BigTitle from '../subComponents/BigTitle';
 
 const BlogPage = () => {
 	const [number, setNumber] = useState(1);
@@ -31,6 +32,7 @@ const BlogPage = () => {
 					</Grid>
 				</Center>
 				<AnchorComponent number={number}/>
+				<BigTitle text="BLOG" top="10%" left="10%"/>
 			</Container>
 		</WrapContainer>
 	);

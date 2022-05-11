@@ -6,7 +6,7 @@ const Card = ({card}) => {
 
     const {id, name, description, tags, demo, github} = card;
     return (
-        <Box>
+        <Box key={id}>
             <Title>{name}</Title>
             <Description>{description}</Description>
             <Tags>

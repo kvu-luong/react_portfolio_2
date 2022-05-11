@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { Design } from '../components/AllSvgs';
 import { lightTheme } from '../components/Themes';
+import BigTitle from '../subComponents/BigTitle';
 import Logo from '../subComponents/Logo';
 import ParticleComponent from '../subComponents/ParticleComponent';
 import PowerButton from '../subComponents/PowerButton';
@@ -54,6 +55,7 @@ const MySkillsPage = () => {
 						<p>VScode, Github, Codepen, etc.</p>
 					</Description>
 				</Main>
+				<BigTitle text="SKILLS" top="80%" right="30%" />
 			</Box>
 		</ThemeProvider>
 	);

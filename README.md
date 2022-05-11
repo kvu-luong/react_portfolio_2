@@ -170,7 +170,7 @@ npm start
 
     `;
 ```
-+ Scroll animation with event 'scroll'
++ Scroll animation with event 'scroll' and translateY animation chain
     ```
     	let scrollPosition = window.pageYOffset;
 		let windowSize = window.innerHeight;
@@ -196,8 +196,15 @@ npm start
 + Using particles in src/subComponents/ParticlesComponent
     Link particles.js: https://vincentgarreau.com/particles.js/ 
 
+- Works page
 
-
++ animation with scroll event + translateX
+    ```
+     const rotate = () => {
+        element.style.transform = `translateX(${-window.pageYOffset}px)`;
+        yingElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
+    }
+    ```
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 
