@@ -28,7 +28,7 @@ const BlogPage = () => {
 	useEffect(() => {
 		let num = (window.innerHeight - 70) / 30;
 		setNumber(parseInt(num));
-		console.log({num, windowHeight: window.innerHeight});
+		// console.log({num, windowHeight: window.innerHeight});
 	},[])
 	return (
 		<WrapContainer>

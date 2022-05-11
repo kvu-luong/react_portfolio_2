@@ -1,8 +1,13 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 const Logo = ({click}) => {
     return (
-        <LogoTitle click={click}>
+        <LogoTitle click={click}
+        initial={{transform: 'translateY(-200px)'}}
+        animate={{transform: 'translateY(0)'}}
+        transition={{type: 'spring', duration: 2, delay: 1}}
+        >
             V2VBRO
         </LogoTitle>
     );
@@ -10,7 +15,7 @@ const Logo = ({click}) => {
 
 export default Logo;
 
-const LogoTitle = styled.h1`
+const LogoTitle = styled(motion.h1)`
     display: inline-block;
     color: ${props => props.click ? props.theme.body : props.theme.text};
     font-family: 'Pacifico', cursive;

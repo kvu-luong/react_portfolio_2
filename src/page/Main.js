@@ -8,6 +8,26 @@ import { YinYang } from '../components/AllSvgs';
 import Intro from '../components/Intro';
 import { motion } from 'framer-motion';
 
+const TitleAnimate = {
+	startX: {
+		y: 200,
+		transition: { type: 'spring', duration: 1.5, delay: 1 },
+	},
+	stopX: {
+		y: 0,
+		transition: { type: 'spring', duration: 1.5, delay: 1 },
+	},
+	startY: {
+		y: -200,
+		transition: { type: 'spring', duration: 1.5, delay: 1 },
+	},
+	stopY: {
+		y: 0,
+		transition: { type: 'spring', duration: 1.5, delay: 1 },
+	},
+	hover: { scale: 1.1 },
+	tap: { scale: 0.9 },
+};
 const Main = () => {
 	const [click, setClick] = useState(false);
 	const handleClick = () => setClick(!click);
@@ -24,33 +44,63 @@ const Main = () => {
 						height={click ? 80 : 150}
 						fill="currentColor"
 					/>
-					<motion.span whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+					<motion.span whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
 						Explore
 					</motion.span>
 				</Center>
 				<Contact target="_blank" to={{ pathname: 'mailto:luongkhanhvu1392@gmail.com' }}>
-					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+					<motion.h3
+						variants={TitleAnimate}
+						initial="startY"
+						animate="stopY"
+						whileHover="hover"
+						whileTap="tap"
+					>
 						Contact Me ...
 					</motion.h3>
 				</Contact>
 				<Blog to="/blog">
-					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+					<motion.h3
+						variants={TitleAnimate}
+						initial="startY"
+						animate="stopY"
+						whileHover="hover"
+						whileTap="tap"
+					>
 						Blog
 					</motion.h3>
 				</Blog>
 				<Work to="/work">
-					<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+					<motion.h3
+						variants={TitleAnimate}
+						initial="startY"
+						animate="stopY"
+						whileHover="hover"
+						whileTap="tap"
+					>
 						Work
 					</motion.h3>
 				</Work>
 				<BottomBar>
 					<About to="/about">
-						<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						<motion.h3
+							variants={TitleAnimate}
+							initial="startX"
+							animate="stopX"
+							whileHover="hover"
+							whileTap="tap"
+						>
 							About
 						</motion.h3>
 					</About>
 					<Skill to="/skills">
-						<motion.h3 whileHover={{ scale: 1.1 }} whitleTap={{ scale: 0.9 }}>
+						<motion.h3
+							variants={TitleAnimate}
+							initial="startX"
+							animate="stopX"
+							whileHover="hover"
+							whileTap="tap"
+						>
 							My Skills.
 						</motion.h3>
 					</Skill>
@@ -58,7 +108,7 @@ const Main = () => {
 
 				<DarkDiv click={click} />
 			</Container>
-			{ click ? <Intro /> : undefined}
+			{click ? <Intro /> : undefined}
 		</MainContainer>
 	);
 };
@@ -110,7 +160,7 @@ const Work = styled(NavLink)`
 	position: absolute;
 	top: 50%;
 	left: 2rem;
-	transform: translate(-50%, -50%)  rotate(-90deg);
+	transform: translate(-50%, -50%) rotate(-90deg);
 	text-decoration: none;
 	z-index: 2;
 `;

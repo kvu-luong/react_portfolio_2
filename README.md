@@ -1,7 +1,12 @@
 # |TaskList
 
-- ![#c5f015] [x] particles animation
+- [x] Particles animation
 - [x] React-router-dom
+- [x] Set position css: fixed, relative, absolute
+- [x] Animation with scroll and height in blog slider
+- [x] Cancel race codition in useEffect
+- [x] Cover Svg image to Component
+### ::Advance
 - [ ] Responsive CSS with styled-component
 - [ ] Page Transition
 - [ ] Loading state
@@ -9,10 +14,6 @@
 - [ ] Trip text in blog page
 - [ ] Infinite scroll
 - [ ] Surpen lazy loading
-- [ ] Set position css: fixed, relative, absolute
-- [ ] Animation with scroll and height in blog slider
-- [x] Cancel race codition in useEffect
-- [x] Cover Svg image to Component
 
 # Start
 
@@ -154,7 +155,7 @@ npm start
         <Box 
             initial = {{height: 0}}
             animate={{height: '55vh'}}
-            transition={{type: 'string', duration: 2, delay: 1}}>
+            transition={{type: 'spring', duration: 2, delay: 1}}>
         ```
     + transform: Different position of rotate will make different result;
         ```
