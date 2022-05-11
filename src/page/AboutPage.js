@@ -8,33 +8,36 @@ import ParticleComponent from '../subComponents/ParticleComponent';
 import astronaut from '../assets/Images/spaceman.png';
 import { keyframes } from 'styled-components';
 import BigTitle from '../subComponents/BigTitle';
+import TransitionPage from '../components/TransitionPage';
 
 const AboutPage = () => {
 	return (
-		<ThemeProvider theme={darkTheme}>
-			<Box>
-				<Logo click={false} />
-				<SocialIcons click={true} />
-				<PowerButton />
-				<ParticleComponent theme="dark" />
-				<Spaceman>
-					<img src={astronaut} alt="spaceman" />
-				</Spaceman>
-				<Main>
-					I'm a front-end developer located in India. I love to create simple yet beautiful websites
-					with great user experience.
-                    <br/>
-                    <br/>
-					I'm interested in the whole frontend stack Like trying new things and building great
-					projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
-                    <br/>
-                    <br/>
-                    I believe everything is an Art when you put your consciousness in it. You can
-					connect with me via social links.
-				</Main>
-				<BigTitle text="ABOUT" top="10%" left="5%" />
-			</Box>
-		</ThemeProvider>
+		<TransitionPage>
+			<ThemeProvider theme={darkTheme}>
+				<Box>
+					<Logo click={false} />
+					<SocialIcons click={true} />
+					<PowerButton />
+					<ParticleComponent theme="dark" />
+					<Spaceman>
+						<img src={astronaut} alt="spaceman" />
+					</Spaceman>
+					<Main>
+						I'm a front-end developer located in India. I love to create simple yet beautiful
+						websites with great user experience.
+						<br />
+						<br />
+						I'm interested in the whole frontend stack Like trying new things and building great
+						projects. I'm an independent freelancer and blogger. I love to write blogs and read
+						books.
+						<br />
+						<br />I believe everything is an Art when you put your consciousness in it. You can
+						connect with me via social links.
+					</Main>
+					<BigTitle text="ABOUT" top="10%" left="5%" />
+				</Box>
+			</ThemeProvider>
+		</TransitionPage>
 	);
 };
 
@@ -84,10 +87,10 @@ const Main = styled.div`
 	font-size: calc(0.6rem + 1vw);
 	backdrop-filter: blur(4px);
 
-    position: absolute;
-    left: calc(5rem + 5vw);
-    top: 10rem;
+	position: absolute;
+	left: calc(5rem + 5vw);
+	top: 10rem;
 
-    font-family: 'Ubutntu Mono', monospace;
-    font-style: italic;
+	font-family: 'Ubutntu Mono', monospace;
+	font-style: italic;
 `;

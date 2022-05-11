@@ -1,6 +1,7 @@
 import styled, { ThemeProvider } from 'styled-components';
 import { Design } from '../components/AllSvgs';
 import { lightTheme } from '../components/Themes';
+import TransitionPage from '../components/TransitionPage';
 import BigTitle from '../subComponents/BigTitle';
 import Logo from '../subComponents/Logo';
 import ParticleComponent from '../subComponents/ParticleComponent';
@@ -9,55 +10,57 @@ import SocialIcons from '../subComponents/SocialIcons';
 
 const MySkillsPage = () => {
 	return (
-		<ThemeProvider theme={lightTheme}>
-			<Box>
-				<Logo click={false} />
-				<PowerButton />
-				<SocialIcons click={false} />
-				<ParticleComponent theme="light" />
+		<TransitionPage>
+			<ThemeProvider theme={lightTheme}>
+				<Box>
+					<Logo click={false} />
+					<PowerButton />
+					<SocialIcons click={false} />
+					<ParticleComponent theme="light" />
 
-				<Main>
-					<Title>
-						<Design width={40} height={40} />
-						Front-end
-					</Title>
-					<Description>
-						I love to create beautiful website, keep it clean, minimal and simple
-					</Description>
-					<Description>
-						<strong>I like to design</strong>
-						<ul>
-							<li>Web Design</li>
-							<li>Mobile Apps</li>
-						</ul>
-					</Description>
-					<Description>
-						<strong>Tools</strong>
-						<ul>
-							<li>figma</li>
-						</ul>
-					</Description>
-				</Main>
-				<Main>
-					<Title>
-						<Design width={40} height={40} />
-						Back-end
-					</Title>
-					<Description>
-						I love to create beautiful website, keep it clean, minimal and simple
-					</Description>
-					<Description>
-						<strong>Skills</strong>
-						<p>Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase, etc.</p>
-					</Description>
-					<Description>
-						<strong>Tools</strong>
-						<p>VScode, Github, Codepen, etc.</p>
-					</Description>
-				</Main>
-				<BigTitle text="SKILLS" top="80%" right="30%" />
-			</Box>
-		</ThemeProvider>
+					<Main>
+						<Title>
+							<Design width={40} height={40} />
+							Front-end
+						</Title>
+						<Description>
+							I love to create beautiful website, keep it clean, minimal and simple
+						</Description>
+						<Description>
+							<strong>I like to design</strong>
+							<ul>
+								<li>Web Design</li>
+								<li>Mobile Apps</li>
+							</ul>
+						</Description>
+						<Description>
+							<strong>Tools</strong>
+							<ul>
+								<li>figma</li>
+							</ul>
+						</Description>
+					</Main>
+					<Main>
+						<Title>
+							<Design width={40} height={40} />
+							Back-end
+						</Title>
+						<Description>
+							I love to create beautiful website, keep it clean, minimal and simple
+						</Description>
+						<Description>
+							<strong>Skills</strong>
+							<p>Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase, etc.</p>
+						</Description>
+						<Description>
+							<strong>Tools</strong>
+							<p>VScode, Github, Codepen, etc.</p>
+						</Description>
+					</Main>
+					<BigTitle text="SKILLS" top="80%" right="30%" />
+				</Box>
+			</ThemeProvider>
+		</TransitionPage>
 	);
 };
 

@@ -10,16 +10,17 @@ import AnchorComponent from '../subComponents/Anchor';
 import { useState, useEffect } from 'react';
 import BigTitle from '../subComponents/BigTitle';
 import { motion } from 'framer-motion';
+import TransitionPage from '../components/TransitionPage';
 
 const container = {
-    hidden: {opacity: 0},
-    show: {
-        opacity: 1,
-        transition: {
-            staggerChildren: 0.5,
-            duration: 0.5,
-        }
-    }
+	hidden: { opacity: 0 },
+	show: {
+		opacity: 1,
+		transition: {
+			staggerChildren: 0.5,
+			duration: 0.5,
+		},
+	},
 };
 
 const BlogPage = () => {
@@ -29,28 +30,24 @@ const BlogPage = () => {
 		let num = (window.innerHeight - 70) / 30;
 		setNumber(parseInt(num));
 		// console.log({num, windowHeight: window.innerHeight});
-	},[])
+	}, []);
 	return (
-		<WrapContainer>
-			<Container>
-				<Logo click={false}/>
-				<PowerButton />
-				<SocialIcon click={false} />
-				<Center>
-					<Grid
-					variants={container}
-					initial="hidden"
-					animate="show"
-					>
-						{Blogs && Blogs.map((item) => (
-							<BlogComponent key={item.id} blog={item}/>
-						))}
-					</Grid>
-				</Center>
-				<AnchorComponent number={number}/>
-				<BigTitle text="BLOG" top="10%" left="10%"/>
-			</Container>
-		</WrapContainer>
+		<TransitionPage>
+			<WrapContainer>
+				<Container>
+					<Logo click={false} />
+					<PowerButton />
+					<SocialIcon click={false} />
+					<Center>
+						<Grid variants={container} initial="hidden" animate="show">
+							{Blogs && Blogs.map((item) => <BlogComponent key={item.id} blog={item} />)}
+						</Grid>
+					</Center>
+					<AnchorComponent number={number} />
+					<BigTitle text="BLOG" top="10%" left="10%" />
+				</Container>
+			</WrapContainer>
+		</TransitionPage>
 	);
 };
 

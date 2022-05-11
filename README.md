@@ -10,8 +10,8 @@
 ### ::Advance
 
 - [x] Suspense lazy loading to handle loading state animation
+- [x] Page Transition with framer-motion
 - [ ] Responsive CSS with styled-component
-- [ ] Page Transition
 - [ ] Responsive image with padding bottom here
 - [ ] Trip text in blog page
 - [ ] Infinite scroll
@@ -299,6 +299,10 @@ npm start
         }
     >
     ```
+
+- Page transition with framer-motion
+
+[Simple example](https://www.geeksforgeeks.org/page-transition-in-react-js-using-framer-motion/)
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 

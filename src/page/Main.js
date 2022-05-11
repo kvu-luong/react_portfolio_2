@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import Logo from '../subComponents/Logo';
-import Sound from '../subComponents/Sound';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
 import { YinYang } from '../components/AllSvgs';
 import Intro from '../components/Intro';
 import { motion } from 'framer-motion';
+import TransitionPage from '../components/TransitionPage';
 
 const TitleAnimate = {
 	startX: {
@@ -34,9 +34,8 @@ const Main = () => {
 	const handleClick = () => setClick(!click);
 
 	return (
-		<>
+		<TransitionPage>
 				<MainContainer>
-					<Sound />
 					<Container>
 						<PowerButton />
 						<Logo click={click} />
@@ -114,7 +113,7 @@ const Main = () => {
 					</Container>
 					{click ? <Intro /> : undefined}
 				</MainContainer>
-		</>
+		</TransitionPage>
 	);
 };
 
