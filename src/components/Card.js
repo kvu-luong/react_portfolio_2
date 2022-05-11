@@ -1,12 +1,27 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 import { Github } from './AllSvgs';
+import { motion } from 'framer-motion';
 
+const Item = {
+    hidden:{
+        scale: 0
+    },
+    show: {
+        scale: 1,
+        transition: {
+            type: 'spring',
+            duration: 0.5
+        }
+    }
+}
 const Card = ({card}) => {
 
     const {id, name, description, tags, demo, github} = card;
     return (
-        <Box key={id}>
+        <Box key={id}
+        variants={Item}
+        >
             <Title>{name}</Title>
             <Description>{description}</Description>
             <Tags>
@@ -28,7 +43,7 @@ const Card = ({card}) => {
 
 export default Card;
 
-const Box = styled.li`
+const Box = styled(motion.li)`
     width: 16rem;
     height: 40vh;
     background-color: ${props => props.theme.text};

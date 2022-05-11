@@ -1,10 +1,25 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
+const Item = {
+    hidden:{
+        scale: 0
+    },
+    show: {
+        scale: 1,
+        transition: {
+            type: 'spring',
+            duration: 0.5
+        }
+    }
+}
 const BlogComponent = ({blog}) => {
     const {name, tags, date, imgSrc, link} = blog;
     return (
-        <Box target="_blank" to={{pathname: link}}>
+        <Box 
+        variants={Item}
+        target="_blank" to={{pathname: link}}>
             <Image img={imgSrc} alt="blog"/>
             <Title>{name}</Title>
             <HashTags>
@@ -24,7 +39,7 @@ export default BlogComponent;
 // loading: page transition
 // surpen lazy loading
 
-const Box = styled(NavLink)`
+const Box = styled(motion(NavLink))`
     width: calc(10rem + 15vw);
     text-decoration: none;
     height: 20rem;

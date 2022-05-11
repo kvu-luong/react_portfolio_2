@@ -10,15 +10,28 @@ import Card from "../components/Card";
 import { useRef, useEffect} from "react";
 import { YinYang } from "../components/AllSvgs";
 import BigTitle from "../subComponents/BigTitle";
+import { motion } from "framer-motion";
+
+const container = {
+    hidden: {opacity: 0},
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.5,
+            duration: 0.5,
+        }
+    }
+};
 
 const WorkPage = () => {
     const ref = useRef(null);
     const yingRef = useRef(null);
 
-    let element = ref.current;
-    let yingElement = yingRef.current;
+    
 
     const rotate = () => {
+        let element = ref.current;
+        let yingElement = yingRef.current;
         element.style.transform = `translateX(${-window.pageYOffset}px)`;
         yingElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
     }
@@ -34,7 +47,10 @@ const WorkPage = () => {
                 <SocialIcons click={true}/>
                 <PowerButton />
 
-                <Main ref={ref}>
+                <Main ref={ref} 
+                variants={container} 
+                initial='hidden' 
+                animate='show'>
                     {
                         Work && Work.map((item, index) => {
                             return <Card key={index} card={item} />
@@ -58,7 +74,7 @@ const Box = styled.div`
     height: 400vh;
 `;
 
-const Main = styled.ul`
+const Main = styled(motion.ul)`
     position: fixed;
     top: 12rem;
     left: calc(10rem + 15vw);

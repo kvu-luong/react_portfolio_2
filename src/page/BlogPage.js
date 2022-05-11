@@ -9,6 +9,18 @@ import { Blogs } from '../data/BlogData';
 import AnchorComponent from '../subComponents/Anchor';
 import { useState, useEffect } from 'react';
 import BigTitle from '../subComponents/BigTitle';
+import { motion } from 'framer-motion';
+
+const container = {
+    hidden: {opacity: 0},
+    show: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.5,
+            duration: 0.5,
+        }
+    }
+};
 
 const BlogPage = () => {
 	const [number, setNumber] = useState(1);
@@ -25,7 +37,11 @@ const BlogPage = () => {
 				<PowerButton />
 				<SocialIcon click={false} />
 				<Center>
-					<Grid>
+					<Grid
+					variants={container}
+					initial="hidden"
+					animate="show"
+					>
 						{Blogs && Blogs.map((item) => (
 							<BlogComponent key={item.id} blog={item}/>
 						))}
@@ -64,7 +80,7 @@ const Center = styled.div`
 	padding-top: 10rem;
 `;
 
-const Grid = styled.div`
+const Grid = styled(motion.div)`
 	display: grid;
 	grid-template-columns: repeat(2, minmax(calc(10rem + 15vw), 1fr));
 	grid-gap: calc(1rem + 2vw);

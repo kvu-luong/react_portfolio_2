@@ -148,29 +148,29 @@ npm start
         ```
 - Blog page
 
-+ WrapContainer -> set background image, container to contain items
-+ Backdrop-filter: blur(2px): css blur for background
-+ Combile 2 component css in styled-component
-```
-    const Box = style.div`
-        // some css here
-    `;
-    const Image = styled.div`
-        background-image: ${props => `url(${props.img})`};
-        width: 100%;
-        height: 60%;
-        background-size; cover;
-        border: 1px solid transparent;
-        background-position: center center;
+    + WrapContainer -> set background image, container to contain items
+    + Backdrop-filter: blur(2px): css blur for background
+    + Combile 2 component css in styled-component
+    ```
+        const Box = style.div`
+            // some css here
+        `;
+        const Image = styled.div`
+            background-image: ${props => `url(${props.img})`};
+            width: 100%;
+            height: 60%;
+            background-size; cover;
+            border: 1px solid transparent;
+            background-position: center center;
 
-        // combine two styled-component
-        ${Box}:hover &{
-            border: 1px solid ${props => props.theme.body};
-        }
+            // combine two styled-component
+            ${Box}:hover &{
+                border: 1px solid ${props => props.theme.body};
+            }
 
-    `;
-```
-+ Scroll animation with event 'scroll' and translateY animation chain
+        `;
+    ```
+    + Scroll animation with event 'scroll' and translateY animation chain
     ```
     	let scrollPosition = window.pageYOffset;
 		let windowSize = window.innerHeight;
@@ -185,26 +185,86 @@ npm start
 
 - Skills page
 
-+ Set Fill color for svg in css
-    ```
-     ${Main}:hover & {
-        & >*{
-            fill: ${props => props.theme.body};
+    + Set Fill color for svg in css
+        ```
+        ${Main}:hover & {
+            & >*{
+                fill: ${props => props.theme.body};
+            }
         }
-    }
-    ```
-+ Using particles in src/subComponents/ParticlesComponent
-    Link particles.js: https://vincentgarreau.com/particles.js/ 
+        ```
+    + Using particles in src/subComponents/ParticlesComponent
+        Link particles.js: https://vincentgarreau.com/particles.js/ 
 
 - Works page
 
-+ animation with scroll event + translateX
+    + animation with scroll event + translateX
+        ```
+        const rotate = () => {
+            element.style.transform = `translateX(${-window.pageYOffset}px)`;
+            yingElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
+        }
+        ```
+- Framer-motion
+    To set animation to children, we need to set animation staggerChildren on parent:
+
+    + AnimatePresence: handle when element remove from react tree which will trigger event animate.
+        ++ existBeforeEnter: make sure finish previous animate before new component come in;
+    + staggerChildren
     ```
-     const rotate = () => {
-        element.style.transform = `translateX(${-window.pageYOffset}px)`;
-        yingElement.style.transform = `rotate(${-window.pageYOffset}deg)`;
+    const container = {
+        hidden: {opacity: 0},
+        show: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.5,
+                duration: 0.5,
+            }
+        }
+    };
+
+    <Main ref={ref} 
+                    variants={container} 
+                    initial='hidden' 
+                    animate='show'>
+
+    const Main = styled(motion.ul)`
+    ```
+
+    + type: 'Spring'
+    ```
+    const Item = {
+        hidden:{
+            scale: 0
+        },
+        show: {
+            scale: 1,
+            transition: {
+                type: 'spring',
+                duration: 0.5
+            }
+        }
     }
+    <Box key={id}
+            variants={Item}
+            >
+
+    const Box = styled(motion.li)`      
     ```
+## |TaskList
+
+- [ x ] particles animation
+- [ x ] React-router-dom
+- [ ] Responsive CSS with styled-component
+- [ ] Page Transition
+- [ ] need to use responsive image with padding bottom here
+- [ ] trip text in blog page
+- [ ] infinite scroll
+- [ ] surpen lazy loading
+- [ ] set position css: fixed, relative, absolute
+- [ ] animation with scroll and height
+- [ x ] cancel race codition in useEffect
+
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
 
