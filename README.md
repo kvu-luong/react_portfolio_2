@@ -253,8 +253,8 @@ npm start
     ```
 ## |TaskList
 
-- [ x ] particles animation
-- [ x ] React-router-dom
+- [x] particles animation
+- [x] React-router-dom
 - [ ] Responsive CSS with styled-component
 - [ ] Page Transition
 - [ ] need to use responsive image with padding bottom here
@@ -263,7 +263,8 @@ npm start
 - [ ] surpen lazy loading
 - [ ] set position css: fixed, relative, absolute
 - [ ] animation with scroll and height
-- [ x ] cancel race codition in useEffect
+- [x] cancel race codition in useEffect
+- [x] Cover Svg image to Component
 
 
 ### Build a Stunning Portfolio with React JS using Styled-Components and framer-motion for awesome Animations
