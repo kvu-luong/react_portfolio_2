@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled, { keyframes } from 'styled-components';
 import Logo from '../subComponents/Logo';
+import Sound from '../subComponents/Sound';
 import PowerButton from '../subComponents/PowerButton';
 import SocialIcons from '../subComponents/SocialIcons';
 import { YinYang } from '../components/AllSvgs';
@@ -31,85 +32,89 @@ const TitleAnimate = {
 const Main = () => {
 	const [click, setClick] = useState(false);
 	const handleClick = () => setClick(!click);
-	return (
-		<MainContainer>
-			<Container>
-				<PowerButton />
-				<Logo click={click} />
-				<SocialIcons click={click} />
-				<Center click={click}>
-					<YinYang
-						onClick={() => handleClick()}
-						width={click ? 80 : 150}
-						height={click ? 80 : 150}
-						fill="currentColor"
-					/>
-					<motion.span whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
-						Explore
-					</motion.span>
-				</Center>
-				<Contact target="_blank" to={{ pathname: 'mailto:luongkhanhvu1392@gmail.com' }}>
-					<motion.h3
-						variants={TitleAnimate}
-						initial="startY"
-						animate="stopY"
-						whileHover="hover"
-						whileTap="tap"
-					>
-						Contact Me ...
-					</motion.h3>
-				</Contact>
-				<Blog to="/blog">
-					<motion.h3
-						variants={TitleAnimate}
-						initial="startY"
-						animate="stopY"
-						whileHover="hover"
-						whileTap="tap"
-					>
-						Blog
-					</motion.h3>
-				</Blog>
-				<Work to="/work">
-					<motion.h3
-						variants={TitleAnimate}
-						initial="startY"
-						animate="stopY"
-						whileHover="hover"
-						whileTap="tap"
-					>
-						Work
-					</motion.h3>
-				</Work>
-				<BottomBar>
-					<About to="/about">
-						<motion.h3
-							variants={TitleAnimate}
-							initial="startX"
-							animate="stopX"
-							whileHover="hover"
-							whileTap="tap"
-						>
-							About
-						</motion.h3>
-					</About>
-					<Skill to="/skills">
-						<motion.h3
-							variants={TitleAnimate}
-							initial="startX"
-							animate="stopX"
-							whileHover="hover"
-							whileTap="tap"
-						>
-							My Skills.
-						</motion.h3>
-					</Skill>
-				</BottomBar>
 
-				<DarkDiv click={click} />
-			</Container>
-			{click ? <Intro /> : undefined}
-		</MainContainer>
+	return (
+		<>
+				<MainContainer>
+					<Sound />
+					<Container>
+						<PowerButton />
+						<Logo click={click} />
+						<SocialIcons click={click} />
+						<Center click={click}>
+							<YinYang
+								onClick={() => handleClick()}
+								width={click ? 80 : 150}
+								height={click ? 80 : 150}
+								fill="currentColor"
+							/>
+							<motion.span whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+								Explore
+							</motion.span>
+						</Center>
+						<Contact target="_blank" to={{ pathname: 'mailto:luongkhanhvu1392@gmail.com' }}>
+							<motion.h3
+								variants={TitleAnimate}
+								initial="startY"
+								animate="stopY"
+								whileHover="hover"
+								whileTap="tap"
+							>
+								Contact Me ...
+							</motion.h3>
+						</Contact>
+						<Blog to="/blog">
+							<motion.h3
+								variants={TitleAnimate}
+								initial="startY"
+								animate="stopY"
+								whileHover="hover"
+								whileTap="tap"
+							>
+								Blog
+							</motion.h3>
+						</Blog>
+						<Work to="/work">
+							<motion.h3
+								variants={TitleAnimate}
+								initial="startY"
+								animate="stopY"
+								whileHover="hover"
+								whileTap="tap"
+							>
+								Work
+							</motion.h3>
+						</Work>
+						<BottomBar>
+							<About to="/about">
+								<motion.h3
+									variants={TitleAnimate}
+									initial="startX"
+									animate="stopX"
+									whileHover="hover"
+									whileTap="tap"
+								>
+									About
+								</motion.h3>
+							</About>
+							<Skill to="/skills">
+								<motion.h3
+									variants={TitleAnimate}
+									initial="startX"
+									animate="stopX"
+									whileHover="hover"
+									whileTap="tap"
+								>
+									My Skills.
+								</motion.h3>
+							</Skill>
+						</BottomBar>
+
+						<DarkDiv click={click} />
+					</Container>
+					{click ? <Intro /> : undefined}
+				</MainContainer>
+		</>
 	);
 };
 

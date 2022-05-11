@@ -2,32 +2,51 @@ import { ThemeProvider } from 'styled-components';
 import GlobalStyle from './globalStyles';
 import { lightTheme } from './components/Themes';
 import { Route, Switch } from 'react-router-dom';
-import AboutPage from './page/AboutPage';
-import BlogPage from './page/BlogPage';
-import Main from './page/Main';
-import WorkPage from './page/WorkPage';
-import MySkillsPage from './page/MySkillsPage';
+import styled from 'styled-components';
 import { AnimatePresence } from 'framer-motion';
-import Sound from './subComponents/Sound';
+import { Suspense, lazy } from 'react';
+import  DotLoader from 'react-spinners/DotLoader';
+const AboutPage = lazy(() => import('./page/AboutPage'));
+const BlogPage = lazy(() => import('./page/BlogPage'));
+const Main = lazy(() => import('./page/Main'));
+const WorkPage = lazy(() => import('./page/WorkPage'));
+const MySkillsPage = lazy(() => import('./page/MySkillsPage'));
 
 function App() {
 	return (
 		<>
-			<GlobalStyle />
-			<ThemeProvider theme={lightTheme}>
-				<Sound />
-				<AnimatePresence existBeforeEnter >
-				<Switch>
-					<Route exact path="/" component={Main} />
-					<Route exact path="/about" component={AboutPage} />
-					<Route exact path="/blog" component={BlogPage} />
-					<Route exact path="/work" component={WorkPage} />
-					<Route exact path="/skills" component={MySkillsPage} />
-				</Switch>
-				</AnimatePresence>
-			</ThemeProvider>
+			<Suspense
+				fallback={
+					<CenterLoading>
+						<DotLoader color={'#7ED321'} loading={true} size={150} />
+					</CenterLoading>
+				}
+			>
+				<GlobalStyle />
+				<ThemeProvider theme={lightTheme}>
+					<AnimatePresence existBeforeEnter>
+						<Switch>
+							<Route exact path="/" component={Main} />
+							<Route exact path="/about" component={AboutPage} />
+							<Route exact path="/blog" component={BlogPage} />
+							<Route exact path="/work" component={WorkPage} />
+							<Route exact path="/skills" component={MySkillsPage} />
+						</Switch>
+					</AnimatePresence>
+				</ThemeProvider>
+			</Suspense>
 		</>
 	);
 }
 
 export default App;
+
+const CenterLoading = styled.div`
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background-color: #fcf6f4;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
